@@ -5,7 +5,7 @@ const App = () => {
 
     return (
         <AppStyled className='App'>
-            My App 
+            My App
         </AppStyled>
     );
 }
