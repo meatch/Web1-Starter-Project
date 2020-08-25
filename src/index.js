@@ -8,11 +8,14 @@ import 'react-app-polyfill/stable';
 | React and 3rd Party Libraries
 ---------------------------*/
 import React from 'react';
-import ReactDOM from 'react-dom';
+import ReactDOM from 'react-dom'
 
 /*---------------------------
 | Components
 ---------------------------*/
 import App from './App/App.jsx';
 
+/*---------------------------
+| Render to DOM
+---------------------------*/
 ReactDOM.render(<App />, document.getElementById('root'));
