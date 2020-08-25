@@ -5,7 +5,7 @@ const slides = require('./slidesData');
 
 router.get('/', (req,res) => { 
     res.json(slides);
-    console.log('Retreived Slides');
+    console.log('Retrieved Slides');
 });
 
 module.exports = router;

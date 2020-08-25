@@ -5,7 +5,7 @@ const services = require('./servicesData');
 
 router.get('/', (req,res) => { 
     res.json(services);
-    console.log('Retreived Services'); 
+    console.log('Retrieved Services'); 
 });
 
 module.exports = router;

@@ -4,7 +4,7 @@ const router = express.Router();
 const staff = require('./staffData.js');
 router.get('/', (req,res) => { 
     res.json(staff);
-    console.log('Retreived Staff'); 
+    console.log('Retrieved Staff'); 
 });
 
 module.exports = router;
