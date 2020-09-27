@@ -3,14 +3,13 @@ import React from 'react';
 /* Components ---------------------------*/
 import Test from './Test.jsx';
 
-
-const App = () => {
+const Main = () => {
 
     return (
-        <div className='App'>
+        <div className='Main'>
             <Test />
         </div>
     );
 }
 
-export default App;
+export default Main;
