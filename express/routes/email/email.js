@@ -2,14 +2,14 @@ const express = require('express');
 const router = express.Router();
 
 router.post('/send', (req,res) => {
-    const response = {
-        errors: false, 
-        message: 'Email Sent',
-        postedData: req.body,
-    }
-    
     console.log('Post Sent Email');
-    res.json(response);
+    res.json({
+        success: true,
+        payload: {
+            postedProps: req.body
+        },
+        errors: [],
+    });
 });
 
 module.exports = router;
