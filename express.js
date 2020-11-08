@@ -14,7 +14,6 @@ require('dotenv').config();
 const path = require('path');
 // require('dotenv').config({ path: './.env.local' });
 const express = require('express');
-const bodyParser = require("body-parser"); //Only way to do POST requests
 
 /*---------------------------
 | Initiaize Instance of Express as app
@@ -24,8 +23,7 @@ const app = express();
 /*---------------------------
 | Set Up BodyParser for Post Requests
 ---------------------------*/
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.json());
+app.use(express.json());
 
 /*---------------------------
 | Serve the static files from the React app
