@@ -7,14 +7,14 @@ const profile = {
     'email': 'user@domain.com',
 }
 
-router.post('/validate', (req,res) => {
+router.post('/login', (req,res) => {
     res.json({
         success: true,
         payload: {
-            profile: profile,
+            user: profile,
             postedProps: req.body
         },
-        errors: [],
+        message: 'User located, you may proceed.',
     });
 });
 

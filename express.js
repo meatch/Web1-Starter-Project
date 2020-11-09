@@ -14,6 +14,7 @@ require('dotenv').config();
 const path = require('path');
 // require('dotenv').config({ path: './.env.local' });
 const express = require('express');
+const session = require('express-session');
 
 /*---------------------------
 | Initiaize Instance of Express as app
@@ -21,9 +22,10 @@ const express = require('express');
 const app = express();
 
 /*---------------------------
-| Set Up BodyParser for Post Requests
+| Express specific
 ---------------------------*/
-app.use(express.json());
+app.use(express.json()); // JSON support for request response
+app.use(session({ secret: 'Shhh. This is private and required to initialize session' })); // Server Session support user access.
 
 /*---------------------------
 | Serve the static files from the React app
@@ -51,7 +53,7 @@ app.use('/api/staff', routes.staff);
 app.use('/api/services', routes.services);
 app.use('/api/slides', routes.slides);
 app.use('/api/email', routes.email);
-app.use('/api/login', routes.login);
+app.use('/api/user', routes.user);
 
 // Catchall for requests that do not match our routing
 app.get('*', (req, res) => {
