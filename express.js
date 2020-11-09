@@ -14,22 +14,48 @@ require('dotenv').config();
 const path = require('path');
 // require('dotenv').config({ path: './.env.local' });
 const express = require('express');
+const cookieParser = require('cookie-parser');
 const session = require('express-session');
 
 /*---------------------------
-| Initiaize Instance of Express as app
+| Mongoose
 ---------------------------*/
+const mongoose = require('mongoose');
+mongoose.promise = global.Promise;
+const mongoConn = process.env.MONGO_DB_CONN;
+/* Connecting to Mongo ---------------------------*/
+if (mongoConn) {
+    mongoose
+        .connect(mongoConn,  { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false })
+        .then((res) => {
+            console.log('Mongo: Connection made.');
+        })
+        .catch((err) => {
+            console.log(`Mongoose Connection Error: ${err}`);
+        });
+} else {
+    console.log('Missing MONGO_DB_CONN env var for Mongo connection');
+}
+
+/*---------------------------
+| Express
+---------------------------*/
+/* Initialize ---------------------------*/
 const app = express();
 
-/*---------------------------
-| Express specific
----------------------------*/
-app.use(express.json()); // JSON support for request response
-app.use(session({ secret: 'Shhh. This is private and required to initialize session' })); // Server Session support user access.
+/* JSON support for request response ---------------------------*/
+app.use(express.json());
 
-/*---------------------------
-| Serve the static files from the React app
----------------------------*/
+/* Server Session support user access. ---------------------------*/
+// initialize cookie-parser to allow us access the cookies stored in the browser. 
+app.use(cookieParser());
+app.use(session({ 
+    secret: "Secret Unique Value",
+    resave: false,
+    saveUninitialized: true,
+}));
+
+/* Serve the static files from the React app ---------------------------*/
 app.use(express.static(path.join(__dirname, 'build')));
 
 /*---------------------------
