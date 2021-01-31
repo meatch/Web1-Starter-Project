@@ -1,0 +1,40 @@
+/*---------------------------
+| Fonts
+---------------------------*/
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200;500;700&display=swap');
+
+/*---------------------------
+| Foundational
+---------------------------*/
+html, body {
+    margin: 0;
+    font-family: Helvetica, Arial, sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Oswald', sans-serif;
+}
+
+h1, h2 { font-weight: 700; }
+h3, h4 { font-weight: 500; }
+h5, h6 { font-weight: 200; }
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0,0,0,0);
+    border: 0;
+}
+
+div {
+    /* border: solid 3px teal; */
+    /* padding: 20px; */
+}
